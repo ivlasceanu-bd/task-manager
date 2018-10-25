@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedinLinks from './SignedinLinks';
 import SignedoutLinks from './SignedoutLinks';
-// import PropTypes from 'prop-types'
 
 const Navbar = () => {
   return (
@@ -15,9 +14,5 @@ const Navbar = () => {
     </nav>
   )
 }
-
-// Navbar.propTypes = {
-
-// }
 
 export default Navbar;
