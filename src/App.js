@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Navbar from './views/Navbar'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navbar from './components/views/Navbar'
+import Dashboard from './components/dashboard/Dashboard'
+import TaskDetails from './components/tasks/TaskDetails';
+import Signin from './components/auth/Signin';
+import Signup from './components/auth/Signup';
+import NewTask from './components/tasks/NewTask';
 
 class App extends Component {
   render() {
@@ -8,6 +13,13 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Navbar />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/task/:id" component={TaskDetails} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/create" component={NewTask} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
