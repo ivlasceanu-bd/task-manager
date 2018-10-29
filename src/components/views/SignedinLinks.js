@@ -8,7 +8,7 @@ const SignedinLinks = (props) => {
   return (
     <ul className="right">
       <li><NavLink to="/create">New Task</NavLink></li>
-      <li><a onClick={ props.signOut }>Logout</a></li>
+      <li><button onClick={ props.signOut }>Logout</button></li>
       <li><NavLink to="/" className="btn btn-floating blue-grey lighten-2">IV</NavLink></li>
     </ul>
   )
