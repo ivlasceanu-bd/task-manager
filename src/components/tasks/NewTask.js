@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { createProject } from '../../store/actions/projectActions';
+import { Redirect } from 'react-router-dom'
 
 class NewTask extends Component {
 
@@ -8,7 +9,7 @@ class NewTask extends Component {
     title:'',
     content: ''
   }
- 
+
   inputChangeHandler = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -22,6 +23,10 @@ class NewTask extends Component {
 
 
   render() {
+    const { auth } = this.props;
+
+    if (!auth) return <Redirect to='/signin' />
+
     return (
       <div className="container">
         <form className="white z-depth-1" onSubmit={ this.formSubmitHandler }>
@@ -45,10 +50,16 @@ class NewTask extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createProject: (project) => dispatch(createProject(project))
   }
 }
 
-export default connect(null, mapDispatchToProps)(NewTask) 
+export default connect(mapStateToProps, mapDispatchToProps)(NewTask) 
