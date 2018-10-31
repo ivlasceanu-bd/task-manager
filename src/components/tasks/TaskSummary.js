@@ -2,8 +2,6 @@ import React from 'react'
 import moment from 'moment';
 
 const TaskSummary = ({ project }) => {
-  console.log(project)
-
   return (
     <div className="card z-depth-1 project-summary">
       <div className="card-content grey-text text-darken-3">
